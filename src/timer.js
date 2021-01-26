@@ -2,8 +2,8 @@ import React from 'react';
 
 export class Countdown extends React.Component{
     state = {
-        minutes: 10,
-        seconds: 0,
+        minutes: 0,
+        seconds: 6,
     }
 
     componentDidMount() {
@@ -37,7 +37,7 @@ export class Countdown extends React.Component{
             <div>
                 { minutes === 0 && seconds === 0
                     ? (<div>
-                        <h2>Times Up! Your score was </h2>
+                        <h2>Times Up! Your score was {this.props.score}</h2>
                         <h2>Click reset to try again!</h2>
                         <button name = "reset" onClick={e => this.props.onClick(e.target.name)}>Reset
       </button>

@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: "",
+      // result: "",
       question: "",
       answer:"",
       correct:0,
@@ -22,45 +22,26 @@ class App extends React.Component {
       score: 0,
       restart: null
     }
-    this.BaseState = this.state;
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onSubmit =this.onSubmit.bind(this);
   }
   score = () => {
-    return this.score;
+    return this.state.score;
   }
   
 
   onClick = button => {
     if (button ==="start"){
-      let rand = Math.floor(Math.random()* Object.keys(questions).length);
-      this.latexdisplay(rand);
+      this.random()
       this.status();
     }
     else if (button ==="reset"){
       window.location.reload();
     }
-    else if(button === "C"){
-        this.reset();
-        this.random();
 
-    }
-    else if (button ==="_"){
-      this.setState({result: this.state.result + " "})
-    }
-    else if (button === "<"){
-
-    }
-
-    else if (button === ">"){
-
-    }
-
-    else {
-        this.setState({
-            result: this.state.result + button
-        })
-    }
+    // else{
+      // this.setState({result: this.state.result + button})
+   // }
   }
 
   random = () =>{
@@ -82,13 +63,10 @@ class App extends React.Component {
     this.setState({answer: Object.values(questions)[rand]})
   }
 
-  reset = () =>{
+  /* reset = () =>{
     this.setState({result:""})
   }
-
-  backspace = () =>{
-    this.setState({result: this.state.result.slice(0,-1)})
-  }
+  */
 
   onSubmit = (e) =>{
     let currentcorrect = this.state.correct;
@@ -100,12 +78,12 @@ class App extends React.Component {
       this.setState({correct: currentcorrect + 1});
       this.setState({score: currentscore + 5});
       this.setState({input: ''});
-      this.reset();
+      // this.reset();
       this.random();
     }else{
     this.setState({input: ''});
     this.setState({score: currentscore - 4});
-    this.reset();
+    // this.reset();
     this.random();
     }
   }
@@ -142,7 +120,7 @@ class App extends React.Component {
   return (
     <div className="calculator-body" >
       <h1 class = "toptitle">Number Sense Practice</h1>
-      {this.state.status ? <Countdown onClick={this.onClick} score={this.score}/>: ''}      
+      {this.state.status ? <Countdown onClick={this.onClick} score={this.score()}/>: ''}      
       <div>{this.state.status ? questionDisplay : start}</div>
         {this.state.status ? userInput : ''}<br />
         {this.state.answer}
