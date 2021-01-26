@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import logo from './logo.svg';
 import './App.css';
 import {KeyPadComponent} from './buttons';
 import {ResultComponent} from './result';
@@ -26,14 +25,10 @@ class App extends React.Component {
     this.BaseState = this.state;
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onSubmit =this.onSubmit.bind(this);
-    this.startOver= this.startOver.bind(this);
   }
-
-
-  startOver = () =>{
-    this.setState(this.BaseState);
+  score = () => {
+    return this.score;
   }
-
   
 
   onClick = button => {
@@ -147,7 +142,7 @@ class App extends React.Component {
   return (
     <div className="calculator-body" >
       <h1 class = "toptitle">Number Sense Practice</h1>
-      {this.state.status ? <Countdown onClick={this.onClick} score={this.status.score}/>: ''}      
+      {this.state.status ? <Countdown onClick={this.onClick} score={this.score}/>: ''}      
       <div>{this.state.status ? questionDisplay : start}</div>
         {this.state.status ? userInput : ''}<br />
         {this.state.answer}
