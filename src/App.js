@@ -18,6 +18,7 @@ class App extends React.Component {
       answer:"",
       correct:0,
       status: false,
+      current:0,
       input: '',
       score: 0,
       restart: null
@@ -71,17 +72,29 @@ class App extends React.Component {
   onSubmit = (e) =>{
     let currentcorrect = this.state.correct;
     let currentscore = this.state.score;
+    let currentquestion = this.state.current;
      const useranswer = e.target.querySelector(
       'input[type="text"]').value;
-    const addtoanswer = useranswer == this.state.answer;
+    let addtoanswer;
+    if (currentquestion != 0 && currentquestion % 10 ===0){
+        let top = 1.05*this.state.answer;
+        let bottom =0.95 * this.state.answer;
+        if (useranswer < top && useranswer>bottom ){
+          addtoanswer = useranswer == this.state.answer;
+        }
+      } else{
+          addtoanswer = useranswer == this.state.answer;
+      }
     if (addtoanswer){
       this.setState({correct: currentcorrect + 1});
+      this.setState({current: currentquestion + 1});
       this.setState({score: currentscore + 5});
       this.setState({input: ''});
       // this.reset();
       this.random();
     }else{
     this.setState({input: ''});
+    this.setState({current: currentquestion + 1});
     this.setState({score: currentscore - 4});
     // this.reset();
     this.random();
@@ -126,6 +139,7 @@ class App extends React.Component {
         {this.state.answer}
       <div>Questions correct: {this.state.correct} </div>
       <div>Current Score: {this.state.score}</div>
+      <div>Current Question: {this.state.current}</div>
       <div>{this.state.restart ? start : ''}</div>
     </div>
     
