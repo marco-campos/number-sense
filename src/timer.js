@@ -2,8 +2,8 @@ import React from 'react';
 
 export class Countdown extends React.Component{
     state = {
-        minutes: 0,
-        seconds: 6,
+        minutes: 10,
+        seconds: 0,
     }
 
     componentDidMount() {
