@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="script.js" defer></script>
+        <script>
+
+            let question1 ={
+                '2 times 4' :8,
+                '4 times 5': 20
+            }
+            function randomQuestion(){
+                let rand = Math.floor(Math.random()* Object.keys(question1).length);
+                return rand;
+            }
+            function getQuestion(){
+                document.getElementById("questionDisplay").innerHTML = Object.keys(question1)[randomQuestion()];
+            }
+
+            function checkAnswer(){
+                let currentAnswer = document.getElementByID("answer");
+                document.getElementById("check").innerHTML = currentAnswer;
+            }
+        </script>
+        <link rel="stylesheet" href="style.css">
+        <title>Number Sense Practice</title>
+    </head>
+    <body>
+        <div class="timer" id="timer">0</div>
+        <div class = "container">
+            <div class="questionDisplay" id="questionDisplay">question</div>
+            <textarea id="questionInput" class="questionInput" autofocus>answer</textarea>
+        </div>
+        
+        <form>
+            <input id ="start" type="button" onclick ="getQuestion()" value="Start">
+        </form>
+        <!--
+        <form>
+            <input id ="answer" name = "answer" type="number" required onsubmit ="checkAnswer()"> 
+        </form>
+        <p id ="check"></p>
+    -->
+    </body>
+</html>
