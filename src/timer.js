@@ -2,7 +2,7 @@ import React from 'react';
 
 export class Countdown extends React.Component{
     state = {
-        minutes: 10,
+        minutes: this.props.minutes,
         seconds: 0,
     }
 
@@ -32,7 +32,8 @@ export class Countdown extends React.Component{
         clearInterval(this.myInterval)
     }
     render(){
-        const { minutes, seconds } = this.state;
+        // const {minutes} = this.props;
+        const {minutes, seconds } = this.state;
         return (
             <div>
                 { minutes === 0 && seconds === 0

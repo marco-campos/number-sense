@@ -23,10 +23,13 @@ class App extends React.Component {
       current:0,
       input: '',
       score: 0,
-      restart: null
+      restart: null,
+      timevalue: 10,
+      exam : []
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onSubmit =this.onSubmit.bind(this);
+    this.changetime = this.changetime.bind(this);
   }
   score = () => {
     return this.state.score;
@@ -62,8 +65,8 @@ class App extends React.Component {
   latexdisplay = rand =>{
     this.setState({
       question: Object.keys(questions[rand])[this.state.current] 
-    })
-    this.setState({answer: Object.values(questions[rand])[this.state.current]})
+    });
+    this.setState({answer: Object.values(questions[rand])[this.state.current]});
   }
 
   /* reset = () =>{
@@ -106,12 +109,27 @@ class App extends React.Component {
 
   onHandleChange(e){
     this.setState({input: e.target.value});
-  }  
+  } 
+  changetime(e){
+    this.setState({timevalue: e.target.value});
+  }
 
   render(){
     let start = (
+      <div>
       <button name = "start" onClick = {e => this.onClick(e.target.name)}>Start!
       </button>
+      <br />
+      <label for="Time">Change the time:</label>
+      <select id = "timechoice" onChange ={this.changetime} value = {this.state.timevalue}>
+        <option value ="10">10 minutes</option>
+        <option value = "5">5 minutes</option>
+        <option value = "2">2 minutes</option>
+        <option value = "1">1 minute</option>
+
+      </select>
+      </div>
+
     );
     let latex = this.state.question;
     let questionDisplay = (
@@ -124,7 +142,7 @@ class App extends React.Component {
     );
     
     let userInput = (
-    <form name = "userinput" action ="#" onSubmit = {this.onSubmit}>
+    <form name = "userinput" onSubmit = {this.onSubmit}>
     <input 
       type ="text" 
       onChange ={this.onHandleChange}
@@ -136,7 +154,7 @@ class App extends React.Component {
   return (
     <div className="calculator-body" >
       <h1 class = "toptitle">Number Sense Practice</h1>
-      {this.state.status ? <Countdown onClick={this.onClick} score={this.score()}/>: ''}      
+      {this.state.status ? <Countdown onClick={this.onClick} score={this.score()} minutes ={this.state.timevalue}/>: ''}      
       <div>{this.state.status ? questionDisplay : start}</div>
         {this.state.status ? userInput : ''}<br />
         
