@@ -6,10 +6,10 @@ import {ResultComponent} from './result';
 import { render } from '@testing-library/react';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
-import {sac91, invA91} from './1999';
+import {sac99, invA99, invB99,disA99,disB99,reg99} from './1999';
 import {Countdown} from './timer';
 
-const questions = [sac91,invA91];
+const questions = [sac99,invA99,invB99,disA99,disB99,reg99];
 
 class App extends React.Component {
   constructor(props) {
@@ -139,8 +139,7 @@ class App extends React.Component {
       {this.state.status ? <Countdown onClick={this.onClick} score={this.score()}/>: ''}      
       <div>{this.state.status ? questionDisplay : start}</div>
         {this.state.status ? userInput : ''}<br />
-        {this.state.answer}<br />
-        {typeof this.state.answer}
+        
       <div>Questions correct: {this.state.correct} </div>
       <div>Current Score: {this.state.score}</div>
       <div>Current Question: {this.state.current}</div>
