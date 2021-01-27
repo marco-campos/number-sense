@@ -6,8 +6,10 @@ import {ResultComponent} from './result';
 import { render } from '@testing-library/react';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
-import {questions, sac19} from './sampleExam';
+import {sac91, invA91} from './1999';
 import {Countdown} from './timer';
+
+const questions = [sac91,invA91];
 
 class App extends React.Component {
   constructor(props) {
@@ -46,7 +48,7 @@ class App extends React.Component {
   }
 
   random = () =>{
-    let rand = Math.floor(Math.random()* Object.keys(questions).length);
+    let rand = Math.floor(Math.random()* questions.length);
     this.latexdisplay(rand);
   }
   status = () =>{
@@ -59,9 +61,9 @@ class App extends React.Component {
 
   latexdisplay = rand =>{
     this.setState({
-      question: Object.keys(questions)[rand] 
+      question: Object.keys(questions[rand])[this.state.current] 
     })
-    this.setState({answer: Object.values(questions)[rand]})
+    this.setState({answer: Object.values(questions[rand])[this.state.current]})
   }
 
   /* reset = () =>{
@@ -76,13 +78,14 @@ class App extends React.Component {
      const useranswer = e.target.querySelector(
       'input[type="text"]').value;
     let addtoanswer;
-    if (currentquestion != 0 && currentquestion % 10 ===0){
+    if (typeof(this.state.answer) =='number'){
         let top = 1.05*this.state.answer;
         let bottom =0.95 * this.state.answer;
-        if (useranswer < top && useranswer>bottom ){
-          addtoanswer = useranswer == this.state.answer;
-        }
-      } else{
+        addtoanswer = (useranswer < top && useranswer > bottom )
+      }
+    else if (typeof(this.state.answer) =='array'){
+      addtoanswer =(useranswer== this.state.answer[0] || useranswer == this.state.answer[1])
+    }else{
           addtoanswer = useranswer == this.state.answer;
       }
     if (addtoanswer){
@@ -136,7 +139,8 @@ class App extends React.Component {
       {this.state.status ? <Countdown onClick={this.onClick} score={this.score()}/>: ''}      
       <div>{this.state.status ? questionDisplay : start}</div>
         {this.state.status ? userInput : ''}<br />
-        {this.state.answer}
+        {this.state.answer}<br />
+        {typeof this.state.answer}
       <div>Questions correct: {this.state.correct} </div>
       <div>Current Score: {this.state.score}</div>
       <div>Current Question: {this.state.current}</div>
