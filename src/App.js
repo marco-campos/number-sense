@@ -7,12 +7,11 @@ import { render } from '@testing-library/react';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import {sac99, invA99, invB99,disA99,disB99,reg99} from './1999';
-import {invA13, invB13} from './2013'
-import {dis14, reg14, state14} from './2014'
+import {invA13, invB13,dis13, reg13, state13} from './2013'
 import {Countdown} from './timer';
 
 const questions = [sac99,invA99,invB99,disA99,disB99,reg99,
-invA13, invB13, dis14,reg14, state14];
+invA13, invB13, dis13,reg13, state13];
 
 class App extends React.Component {
   constructor(props) {
@@ -82,6 +81,7 @@ class App extends React.Component {
   */
 
   onSubmit = (e) =>{
+    e.preventDefault();
     let currentcorrect = this.state.correct;
     let currentscore = this.state.score;
      const useranswer = e.target.querySelector(
@@ -147,7 +147,7 @@ class App extends React.Component {
     );
     
     let userInput = (
-    <form name = "userinput" onSubmit = {this.onSubmit}>
+    <form id = "userinput" onSubmit = {this.onSubmit}>
     <input 
       type ="text" 
       onChange ={this.onHandleChange}
@@ -167,6 +167,7 @@ class App extends React.Component {
       <div>Questions correct: {this.state.correct} </div>
       <div>Current Score: {this.state.score}</div>
       <div>{this.state.restart ? start : ''}</div>
+      
     </div>
     
   );
