@@ -7,9 +7,12 @@ import { render } from '@testing-library/react';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import {sac99, invA99, invB99,disA99,disB99,reg99} from './1999';
+import {invA13, invB13} from './2013'
+import {dis14, reg14, state14} from './2014'
 import {Countdown} from './timer';
 
-const questions = [sac99,invA99,invB99,disA99,disB99,reg99];
+const questions = [sac99,invA99,invB99,disA99,disB99,reg99,
+invA13, invB13, dis14,reg14, state14];
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +28,7 @@ class App extends React.Component {
       score: 0,
       restart: null,
       timevalue: 10,
-      exam : []
+      exam: []
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onSubmit =this.onSubmit.bind(this);
@@ -52,7 +55,10 @@ class App extends React.Component {
 
   random = () =>{
     let rand = Math.floor(Math.random()* questions.length);
+    let currentquestion = this.state.current;
     this.latexdisplay(rand);
+    this.setState({current: currentquestion + 1});
+
   }
   status = () =>{
     if (this.state.status === true){
@@ -69,6 +75,7 @@ class App extends React.Component {
     this.setState({answer: Object.values(questions[rand])[this.state.current]});
   }
 
+
   /* reset = () =>{
     this.setState({result:""})
   }
@@ -77,7 +84,6 @@ class App extends React.Component {
   onSubmit = (e) =>{
     let currentcorrect = this.state.correct;
     let currentscore = this.state.score;
-    let currentquestion = this.state.current;
      const useranswer = e.target.querySelector(
       'input[type="text"]').value;
     let addtoanswer;
@@ -93,14 +99,12 @@ class App extends React.Component {
       }
     if (addtoanswer){
       this.setState({correct: currentcorrect + 1});
-      this.setState({current: currentquestion + 1});
       this.setState({score: currentscore + 5});
       this.setState({input: ''});
       // this.reset();
       this.random();
     }else{
     this.setState({input: ''});
-    this.setState({current: currentquestion + 1});
     this.setState({score: currentscore - 4});
     // this.reset();
     this.random();
@@ -115,6 +119,7 @@ class App extends React.Component {
   }
 
   render(){
+    let exam =[];
     let start = (
       <div>
       <button name = "start" onClick = {e => this.onClick(e.target.name)}>Start!
@@ -135,7 +140,7 @@ class App extends React.Component {
     let questionDisplay = (
       <div>
       <h1>
-        <BlockMath>{String.raw`${latex}`}</BlockMath>
+        <BlockMath>{String.raw`(${this.state.current %10 ===0 ? `${this.state.current}^*` : this.state.current })`+'\\textrm{                      }  '+  String.raw`${latex}`}</BlockMath>
        
       </h1>
       </div>
@@ -158,9 +163,9 @@ class App extends React.Component {
       <div>{this.state.status ? questionDisplay : start}</div>
         {this.state.status ? userInput : ''}<br />
         
+        {this.state.exam}
       <div>Questions correct: {this.state.correct} </div>
       <div>Current Score: {this.state.score}</div>
-      <div>Current Question: {this.state.current}</div>
       <div>{this.state.restart ? start : ''}</div>
     </div>
     
