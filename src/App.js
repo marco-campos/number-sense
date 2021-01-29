@@ -31,7 +31,8 @@ class App extends React.Component {
       exam: [],
       key: [],
       show: false,
-      stopinput:false
+      stopinput:false,
+      wrong:[]
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onSubmit =this.onSubmit.bind(this);
@@ -135,6 +136,10 @@ class App extends React.Component {
     }else{
     this.setState({input: ''});
     this.setState({score: currentscore - 4});
+    let incorrect = this.state.current;
+    this.setState(prevState =>({
+      wrong: [...prevState.wrong, incorrect]
+    }));
     // this.reset();
     this.random();
     }
@@ -174,7 +179,6 @@ class App extends React.Component {
         <option value = "5">5 minutes</option>
         <option value = "2">2 minutes</option>
         <option value = "1">1 minute</option>
-        <option value = "0">0 minutes </option>
       </select>
       </div>
 
@@ -214,7 +218,7 @@ class App extends React.Component {
           <th>Answers</th>
         </tr>
       {Object.keys(examkey).map((question, index) =>(
-        <tr key ={index}>
+        <tr id ={this.state.wrong.includes(index+1) ? 'wrong' : 'right'}>
           <td>
             <BlockMath>{String.raw` ${Object.keys(examkey)[index+1]}`}</BlockMath>
           </td>
@@ -231,7 +235,7 @@ class App extends React.Component {
           <li>Select a time above and begin answering the questions.</li>
           <li>Make sure you use "/" for fractions and leave a space for mixed numbers.</li>
         </ul>
-        <p><BlockMath>{String.raw`3 \frac{1}{2} \textrm{ should be written as: 3 1/2}`}</BlockMath> </p>
+        <h3><BlockMath>{String.raw`3 \frac{1}{2} \textrm{ should be written as: 3 1/2}`}</BlockMath> </h3><br/>
         <h2>Rules:</h2>
         <ul>
           <li>+5 points per question correct</li>
@@ -246,7 +250,7 @@ class App extends React.Component {
     
   return (
     <div className="calculator-body" >
-      <h1 class = "toptitle">Number Sense Practice</h1>
+      <h1 id ="title">Number Sense Practice</h1>
       {this.state.status ? <Countdown onClick={this.onClick} score={this.score()} minutes ={this.state.timevalue} stopInput={this.stopInput}/>: ''}      
       <div>{this.state.status && !this.state.show && !this.state.stopinput ? questionDisplay : ''}{this.state.status ? '' : start}</div>
         {this.state.status && !this.state.show && !this.state.stopinput ? userInput : ''}<br />
@@ -255,11 +259,8 @@ class App extends React.Component {
         {this.state.restart ? start : ''}
         {this.state.status ? '': instructions}
       </div>
-      <div>{this.state.show ? examdisplay : ''} </div>
-      <div>{console.log(this.state.stopinput)}</div>
       <div>{this.state.status ? resetbutton: ''}</div>
-      {this.state.answer}<br />
-      {this.state.correct}
+      <div>{this.state.show ? examdisplay : ''} </div>
     </div>
   );
   }
