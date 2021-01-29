@@ -168,7 +168,7 @@ class App extends React.Component {
       </button>
       <br />
       <br />
-      <label for="Time">Change the time:</label>
+      <label id = "timechoice1" for="Time">Change the time:</label>
       <select id = "timechoice" onChange ={this.changetime} value = {this.state.timevalue}>
         <option value ="10">10 minutes</option>
         <option value = "5">5 minutes</option>
@@ -196,7 +196,7 @@ class App extends React.Component {
       onChange ={this.onHandleChange}
       value= {this.state.input}
       placeholder = "" /><br />
-    <input type ="submit" autofocus/>
+    <input id = "submit" type ="submit" autofocus/>
   </form>);
 
     let examkey = {};
@@ -239,6 +239,8 @@ class App extends React.Component {
 
       </div>
     )
+    let resetbutton= (<button id= "resethome" name = "reset" onClick={e => this.onClick(e.target.name)}>Reset
+    </button>);
     
   return (
     <div className="calculator-body" >
@@ -253,6 +255,7 @@ class App extends React.Component {
       </div>
       <div>{this.state.show ? examdisplay : ''} </div>
       <div>{console.log(this.state.stopinput)}</div>
+      <div>{this.state.status ? resetbutton: ''}</div>
     </div>
   );
   }

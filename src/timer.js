@@ -41,8 +41,6 @@ export class Countdown extends React.Component{
                     ? (<div name="stop" >
                         <h2>Times Up! Your score was {this.props.score}</h2>
                         <h2>Click reset to try again!</h2>
-                        <button id= "reset" name = "reset" onClick={e => this.props.onClick(e.target.name)}>Reset
-      </button><br />
                         <button id="showexam" name="showexam" onClick={e => this.props.onClick(e.target.name)}>Show Exam:</button>
                       </div>)
                     : <h2>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h2>

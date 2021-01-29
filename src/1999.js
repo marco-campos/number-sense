@@ -17,7 +17,7 @@ export const sac99 = {
   '2 + 4+6+ \\textrm{ ... } +28 =': '210',
   '11 \\times 214 =': '2354',
   '4 \\frac{2}{5} \\% = \\textrm{(fraction)}':'11/250',
-  '\\textrm{Find the cost of driving 127 miles at 25 cents per mile. $}':'31.75',
+  '\\textrm{Find the cost of driving 127 miles at 25 cents per mile. \\$}':'31.75',
   '41259 \\div 39 =': 1058.0
 
 }

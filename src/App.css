@@ -3,6 +3,7 @@
 }
 
 table{
+  border-collapse: collapse;
   width: 100%;
 }
 table, th, td {
@@ -29,7 +30,8 @@ h1 {
 }
 
 .calculator-body {
-  max-width: 400px;
+  width: 70%;
+  max-width: 500px;
   margin: auto;
   text-align: center;
   font-family: "Computer Modern", sans-serif;
@@ -62,9 +64,9 @@ input[type=submit] {
 input[type=text] {
   width: 50%;
   border: 2px solid #008CBA;
-  height: 30px;
-  font-size: 14pt;
-  border-radius: 4px;
+  height: 35px;
+  font-size: 16pt;
+  border-radius: 6px;
 }
 
 #showexam, #reset {
@@ -80,13 +82,41 @@ input[type=text] {
   cursor: pointer;
 }
 
-#start{
+#submit {
   background-color: #008CBA;
-  width:50%;
-  font-size: 15pt;
+  width:30%;
+  font-size: 1em;
   border: none;
   color: white;
-  padding: 14px 40px;
+  padding: 14px 1em;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#resethome{
+  background-color: rgb(218, 50, 50);
+  width:30%;
+  font-size: 1em;
+  border: none;
+  color: white;
+  padding: 14px 1em;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#timechoice1, #timechoice{
+  font-size: 1.3em;
+}
+#start{
+  background-color: #008CBA;
+  width:30%;
+  font-size: 1.3em;
+  border: none;
+  color: white;
+  padding: 14px 1px;
   border-radius: 8px;
   text-decoration: none;
   margin: 4px 2px;
@@ -96,8 +126,8 @@ input[type=text] {
 li {
   text-align:left;
   margin: 10px;
-  font-size: 10pt;
+  font-size: 1.3em;
 }
 p{
-  font-size: 10;
+  font-size: 1.3em;
 }
