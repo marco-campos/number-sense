@@ -48,7 +48,7 @@ export const invA99 = {
 
 export const invB99 = {
   '5 \\times 1999 + 10 =': '1005',
-  '2.5 \\times 37 = ': [92.5, 185/2],
+  '2.5 \\times 37 = ': ['92.5', '185/2'],
   '137 \\div 5 = (\\textrm{mixed number}) ': '27 2/5',
   '19 \\times 19 = ': '361',
   '593 + 395 = ': '988',
@@ -100,7 +100,7 @@ export const disB99 ={
   '1.4 + 2.8 + 3.8 = ': '8',
   '\\frac{4}{5} - \\frac{1}{12} = ': '43/60',
   '\\textrm{Which is smaller, .38 or} \\frac{3}{8}?': '3/8',
-  'XC + XX = \\textrm(Arabic Numeral)': '110',
+  'XC + XX = \\textrm{(Arabic Numeral)}': '110',
   '37^2 = ': '1369',
   '138 + 258 + 448 + 678 = ': 1522,
   '2.5 \\times 13.6 =': '34',

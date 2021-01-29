@@ -88,7 +88,7 @@ export const reg13 = {
 	'(\\frac{9}{11})^3=': '729/1331',
 	'\\$18.00 \\textrm{ is 40\\% of \\$} \\_\\_\\_\\_ ': '45.00',
 	'\\textrm{The multiplicative inverse of }-1\\frac{5}{7}\\textrm{ is } \\_\\_\\_\\_ ': '-7/12',
-	'532014\\div415': '1282'
+	'532014\\div415': 1282
 	
 }
 

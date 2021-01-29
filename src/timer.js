@@ -17,7 +17,8 @@ export class Countdown extends React.Component{
             }
             if (seconds === 0) {
                 if (minutes === 0) {
-                    clearInterval(this.myInterval)
+                    clearInterval(this.myInterval);
+                    {this.props.stopInput("stop")};
                 } else {
                     this.setState(({ minutes }) => ({
                         minutes: minutes - 1,
@@ -37,11 +38,12 @@ export class Countdown extends React.Component{
         return (
             <div>
                 { minutes === 0 && seconds === 0
-                    ? (<div>
+                    ? (<div name="stop" >
                         <h2>Times Up! Your score was {this.props.score}</h2>
                         <h2>Click reset to try again!</h2>
-                        <button name = "reset" onClick={e => this.props.onClick(e.target.name)}>Reset
-      </button>
+                        <button id= "reset" name = "reset" onClick={e => this.props.onClick(e.target.name)}>Reset
+      </button><br />
+                        <button id="showexam" name="showexam" onClick={e => this.props.onClick(e.target.name)}>Show Exam:</button>
                       </div>)
                     : <h2>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h2>
                 }
