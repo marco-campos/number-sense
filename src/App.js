@@ -192,7 +192,8 @@ class App extends React.Component {
     let userInput = (
     <form id = "userinput" onSubmit = {this.onSubmit}>
     <input 
-      type ="text" 
+      type ="text"
+      pattern = "(?=.\[0-9] )"
       onChange ={this.onHandleChange}
       value= {this.state.input}
       placeholder = "" /><br />
@@ -225,10 +226,11 @@ class App extends React.Component {
       </table>
     )
     let instructions = (
-      <div> 
-        <p>Select a time above and begin answering the questions. <br />
-        Make sure you use "/" for fractions and leave a space
-          for mixed numbers. Example:</p>
+      <div id ="instructions"> 
+        <ul>
+          <li>Select a time above and begin answering the questions.</li>
+          <li>Make sure you use "/" for fractions and leave a space for mixed numbers.</li>
+        </ul>
         <p><BlockMath>{String.raw`3 \frac{1}{2} \textrm{ should be written as: 3 1/2}`}</BlockMath> </p>
         <h2>Rules:</h2>
         <ul>
@@ -256,6 +258,8 @@ class App extends React.Component {
       <div>{this.state.show ? examdisplay : ''} </div>
       <div>{console.log(this.state.stopinput)}</div>
       <div>{this.state.status ? resetbutton: ''}</div>
+      {this.state.answer}<br />
+      {this.state.correct}
     </div>
   );
   }
