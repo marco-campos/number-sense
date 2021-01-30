@@ -229,6 +229,7 @@ class App extends React.Component {
       ))}
       </table>
     )
+    
     let instructions = (
       <div id ="instructions"> 
         <ul>
@@ -261,6 +262,9 @@ class App extends React.Component {
       </div>
       <div>{this.state.status ? resetbutton: ''}</div>
       <div>{this.state.show ? examdisplay : ''} </div>
+      
+     
+    
     </div>
   );
   }

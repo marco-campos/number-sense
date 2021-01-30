@@ -1,13 +1,13 @@
 export const invA13 = {
     '511-115=': '396',
     '88\\times25=': '2200',
-    '2013\\div9=\\textrm{mixed number}': '223 2/3',
+    '2013\\div9=\\textrm{(mixed number)}': '223 2/3',
     '115+2013':'2128',
 '\\frac{3}{5}=\\textrm{\\_\\_\\_\\_ \\% (decimal)}': '60',
     '2.4\\div1.5=': ['1.6','8/5','1 3/5'],
     '14^2=': '196',
     '5\\frac{3}{4}-4\\frac{2}{3}=\\textrm{mixed number}': '1 1/12',
-    '11\\% \\textrm{ of } \\$12.00 \\textrm{ is } \\$ \\_\\_\\_\\_': '1.32',
+    '11\\% \\textrm{ of } \\$12.00 \\textrm{ is \\$ \\_\\_\\_\\_}': '1.32',
     '115+2013-511+3102=': 4719,
     '\\textrm{Which is larger }\\frac{7}{9} \\textrm{ or 0.8?} ': '.8',
     '40\\times 23-17\\times 23': '529',
@@ -26,7 +26,7 @@ export const invB13 = {
 	'28\\times15': '420',
 	'310.2+20.13': '330.33',
 	'2\\frac{1}{3}\\div 3\\frac{1}{2}': '2/3',
-	'0.875=\\textrm{proper fraction}': '7/8',
+	'0.875=\\textrm{(proper fraction)}': '7/8',
 	'54536\\div 9=': '60504',
 	'6543\\times 9-2': '58885',
 	'25\\times 20-15+10\\div 5=': '487',
@@ -40,8 +40,8 @@ export const invB13 = {
 	'\\frac{15}{19}\\times 15': '11 16/19',
 	'\\textrm{The largest prime factor of 285 is \\_\\_\\_\\_}': '19',
 	'\\frac{7}{12}-\\frac{7}{24}-\\frac{7}{36}': '7/72',
-	'\\textrm{Which is smaller, -0.45 or }\\frac{4}{9}': ['-.45','-9/20'],
-	'8\\times15\\times 194=': 133640
+	'\\textrm{Which is smaller, -0.45 or -}\\frac{4}{9}': ['-.45','-9/20'],
+	'8\\times15\\times 1947=': 133640
 }
 
 export const dis13 = {
