@@ -7,12 +7,16 @@ import { render } from '@testing-library/react';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import {sac99, invA99, invB99,disA99,disB99,reg99} from './1999';
-import {invA13, invB13,dis13, reg13, state13} from './2013'
+import {invA13, invB13,dis13, reg13, state13} from './2013';
+import {preA18, invA18, invB18,dis18, reg18, state18} from './2018';
 import {Countdown} from './timer';
 import {Exam} from './Exam';
 
-const questions = [sac99,invA99,invB99,disA99,disB99,reg99,
-invA13, invB13, dis13,reg13, state13];
+const questions = [
+  sac99,invA99,invB99,disA99,disB99,reg99,
+  invA13, invB13, dis13,reg13, state13,
+  preA18, invA18, invB18,dis18, reg18, state18
+];
 
 class App extends React.Component {
   constructor(props) {
@@ -263,7 +267,22 @@ class App extends React.Component {
       <div>{this.state.status ? resetbutton: ''}</div>
       <div>{this.state.show ? examdisplay : ''} </div>
       
-     
+      <table class="resultsafter">
+        <tr>
+          <th>Questions </th>
+          <th>Answers</th>
+        </tr>
+      {Object.keys(dis13).map((question, index) =>(
+        <tr id ={this.state.wrong.includes(index+1) ? 'wrong' : 'right'}>
+          <td>
+            <BlockMath>{String.raw` ${Object.keys(dis13)[index+1]}`}</BlockMath>
+          </td>
+          <td>
+          <BlockMath>{String.raw` ${Object.values(dis13)[index+1]}`}</BlockMath>
+          </td>
+        </tr>
+      ))}
+      </table>
     
     </div>
   );
