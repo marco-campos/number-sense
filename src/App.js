@@ -125,8 +125,8 @@ class App extends React.Component {
         let bottom =0.95 * this.state.answer;
         addtoanswer = (useranswer < top && useranswer > bottom )
       }
-    else if (typeof(this.state.answer) =='array'){
-      addtoanswer =(useranswer== this.state.answer[0] || useranswer == this.state.answer[1])
+    else if (typeof(this.state.answer) =='object'){
+      addtoanswer =(useranswer== this.state.answer[0] || useranswer == this.state.answer[1] || useranswer == this.state.answer[2])
     }else{
           addtoanswer = useranswer == this.state.answer;
       }
@@ -267,13 +267,6 @@ class App extends React.Component {
       <div>{this.state.status ? resetbutton: ''}</div>
       <div>{this.state.show ? examdisplay : ''} </div>
       
-      <table class="resultsafter">
-        <tr>
-          <th>Questions </th>
-          <th>Answers</th>
-        </tr>
-      
-      </table>
     
     </div>
   );
