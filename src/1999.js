@@ -132,7 +132,7 @@ export const reg99 ={
   '2145 \\div 9 =':'238 1/3',
   '\\textrm{How many odd integers are between 13 and 88?}':'37',
   '9(8)+71(9)+10(13)=':'841',
-  '\textrm{How many positive prime integer numbers divide 210?}':'4',
+  '\\textrm{How many positive prime integer numbers divide 210?}':'4',
   '\\frac{7}{12}+\\frac{12}{7}=':'2 25/84',
   '\textrm{what number times five and subtracted from 42, gives the same result?}':'7',
   '15550 \\div 124=': 125,

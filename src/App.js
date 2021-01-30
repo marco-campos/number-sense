@@ -36,7 +36,8 @@ class App extends React.Component {
       key: [],
       show: false,
       stopinput:false,
-      wrong:[]
+      wrong:[],
+      range: "All"
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onSubmit =this.onSubmit.bind(this);
@@ -74,12 +75,18 @@ class App extends React.Component {
       // this.setState({result: this.state.result + button})
    // }
   }
+
   
   random = () =>{
     let rand = Math.floor(Math.random()* questions.length);
     let currentquestion = this.state.current;
     this.latexdisplay(rand);
     this.setState({current: currentquestion + 1});
+    if (currentquestion > 19){
+      this.setState({range: 'stop'});
+      this.setState({stopinput: true});
+      this.setState({show: true});
+    }
 
   }
   status = () =>{
@@ -165,6 +172,14 @@ class App extends React.Component {
   onHandleChange(e){
     this.setState({input: e.target.value});
   } 
+
+  //This will be for changing the range but it was not working very well during testing.
+  changerange(e){
+    this.setState({range: e.target.value});
+  }
+
+
+
   changetime(e){
     this.setState({timevalue: e.target.value});
   }
@@ -266,7 +281,6 @@ class App extends React.Component {
       </div>
       <div>{this.state.status ? resetbutton: ''}</div>
       <div>{this.state.show ? examdisplay : ''} </div>
-      
     
     </div>
   );
