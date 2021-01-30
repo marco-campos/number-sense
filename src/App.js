@@ -272,16 +272,7 @@ class App extends React.Component {
           <th>Questions </th>
           <th>Answers</th>
         </tr>
-      {Object.keys(dis13).map((question, index) =>(
-        <tr id ={this.state.wrong.includes(index+1) ? 'wrong' : 'right'}>
-          <td>
-            <BlockMath>{String.raw` ${Object.keys(dis13)[index+1]}`}</BlockMath>
-          </td>
-          <td>
-          <BlockMath>{String.raw` ${Object.values(dis13)[index+1]}`}</BlockMath>
-          </td>
-        </tr>
-      ))}
+      
       </table>
     
     </div>
