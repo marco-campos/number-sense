@@ -65,7 +65,14 @@ class App extends React.Component {
 
   onClick = button => {
     if (button ==="start"){
-      this.random()
+      let rand = Math.floor(Math.random()* questions.length);
+      this.setState({rand: rand});
+      let currentquestion = this.state.current;
+      this.setState({current: currentquestion + 1});
+      this.setState({
+        question: Object.keys(questions[rand])[this.state.current] 
+      });
+      this.setState({answer: Object.values(questions[rand])[this.state.current]});
       this.status();
     }
     else if (button ==="showexam"){
@@ -235,8 +242,9 @@ class App extends React.Component {
     let examq = this.state.exam;
     let examk = this.state.key;
     let exama = this.state.response;
+    
     [...examq].forEach((question, i ) =>{
-      examkey[question] = [examk[i],exama[i-1]]
+      examkey[question] = [examk[i],exama[i]]
     });
     
 
@@ -295,6 +303,7 @@ class App extends React.Component {
       </div>
       <div>{this.state.status ? resetbutton: ''}</div>
       <div>{this.state.show ? examdisplay : ''} </div>
+      
     
     </div>
   );
