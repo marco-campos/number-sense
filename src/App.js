@@ -303,7 +303,6 @@ class App extends React.Component {
       </div>
       <div>{this.state.status ? resetbutton: ''}</div>
       <div>{this.state.show ? examdisplay : ''} </div>
-      
     
     </div>
   );

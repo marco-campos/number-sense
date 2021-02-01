@@ -74,7 +74,7 @@ export const disA99 = {
   '2.37 +4.43 = ': '6.8',
   '942 -249 = ': '693',
   '213 \\div 5 = \\textrm{(decimal)}': '42.6',
-  '\\frac{1}{3} + \\frac{2}{9} + \\frac{1}{9}': '11/18',
+  '\\frac{1}{3} + \\frac{2}{9} + \\frac{1}{18}': '11/18',
   '3(2) + 3(29)+4(7) =' :'121',
   '1.209 \\div 3 =':'.403',
   '48 - 36 \\div 4 + 2 = ':'41',
@@ -83,7 +83,7 @@ export const disA99 = {
   '105 \\% = \\textrm{improper fraction}': '21/20',
   '23 \\times 47 + 47 \\times 37 = ': '2820',
   '62.5 \\% = \\textrm{(fraction)}': '5/8',
-  '324 centimeters = \\textrm{meters}': '3.24',
+  '324 \\textrm{centimeter} = \\textrm{meters}': '3.24',
   '17 \\% \\textrm{of 23}': '3.91',
   '2.5 \\times 16.8 = ': '42',
   '46^2 = ':'2116',
@@ -94,7 +94,7 @@ export const disA99 = {
 
 export const disB99 ={
   '2099 \\times 4 = ': '8396',
-  '365 \\div 5 = \\textrm{(mixed number)}' : '69 1/5',
+  '346 \\div 5 = \\textrm{(mixed number)}' : '69 1/5',
   '16 \\times 1999 \\div 2 = ': '15992',
   '236 -632 = ':'-396',
   '1.4 + 2.8 + 3.8 = ': '8',
