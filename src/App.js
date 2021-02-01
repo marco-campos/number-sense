@@ -9,6 +9,7 @@ import { InlineMath, BlockMath } from 'react-katex';
 import {sac99, invA99, invB99,disA99,disB99,reg99} from './1999';
 import {sac00} from './2000';
 import {invA13, invB13,dis13, reg13, state13} from './2013';
+import {invA17, invB17,dis17} from './2017'
 import {preA18, invA18, invB18,dis18, reg18, state18} from './2018';
 import {invA19, invB19,dis19} from './2019';
 import {Countdown} from './timer';
@@ -17,6 +18,7 @@ const questions = [
   sac99,invA99,invB99,disA99,disB99,reg99,
   sac00,
   invA13, invB13, dis13,reg13, state13,
+  invA17, invB17, dis17,
   preA18, invA18, invB18,dis18, reg18, state18,
   invA19, invB19, dis19
 ];
