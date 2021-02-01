@@ -33,13 +33,15 @@ class App extends React.Component {
       input: '',
       score: 0,
       restart: null,
+      rand: 0,
       timevalue: 10,
       exam: [],
       key: [],
       show: false,
       stopinput:false,
       wrong:[],
-      range: "All"
+      range: "All",
+      response: []
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onSubmit =this.onSubmit.bind(this);
@@ -81,6 +83,7 @@ class App extends React.Component {
   
   random = () =>{
     let rand = Math.floor(Math.random()* questions.length);
+    this.setState({rand: rand});
     let currentquestion = this.state.current;
     this.latexdisplay(rand);
     this.setState({current: currentquestion + 1});
@@ -129,6 +132,9 @@ class App extends React.Component {
      const useranswer = e.target.querySelector(
       'input[type="text"]').value;
     let addtoanswer;
+    this.setState(prevState => ({
+      response: [...prevState.response, useranswer ]
+    }));
     if (typeof(this.state.answer) =='number'){
         let top = 1.05*this.state.answer;
         let bottom =0.95 * this.state.answer;
@@ -227,24 +233,30 @@ class App extends React.Component {
 
     let examkey = {};
     let examq = this.state.exam;
-    let exama = this.state.key;
+    let examk = this.state.key;
+    let exama = this.state.response;
     [...examq].forEach((question, i ) =>{
-      examkey[question] = exama[i]
+      examkey[question] = [examk[i],exama[i-1]]
     });
+    
 
     let examdisplay =(
       <table class="resultsafter">
         <tr>
           <th>Questions </th>
+          <th>Key</th>
           <th>Answers</th>
         </tr>
       {Object.keys(examkey).map((question, index) =>(
         <tr id ={this.state.wrong.includes(index+1) ? 'wrong' : 'right'}>
           <td>
-            <BlockMath>{String.raw` ${Object.keys(examkey)[index+1]}`}</BlockMath>
+            <BlockMath>{String.raw` ${Object.keys(examkey)[index]}`}</BlockMath>
           </td>
           <td>
-          <BlockMath>{String.raw` ${Object.values(examkey)[index+1]}`}</BlockMath>
+          <BlockMath>{String.raw` ${Object.values(examkey)[index][0]}`}</BlockMath>
+          </td>
+          <td>
+          <BlockMath>{String.raw` ${Object.values(examkey)[index][1]}`}</BlockMath>
           </td>
         </tr>
       ))}

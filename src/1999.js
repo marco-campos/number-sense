@@ -134,7 +134,7 @@ export const reg99 ={
   '9(8)+71(9)+10(13)=':'841',
   '\\textrm{How many positive prime integer numbers divide 210?}':'4',
   '\\frac{7}{12}+\\frac{12}{7}=':'2 25/84',
-  '\textrm{what number times five and subtracted from 42, gives the same result?}':'7',
+  '\\textrm{what number times five and subtracted from 42, gives the same result?}':'7',
   '15550 \\div 124=': 125,
   '\textrm{If 6 apples cost \\$2.04 ,then 15 apples cost }':'\\$5.10',
   '\\frac{11}{13}\\times11=\\textrm{(mixed number)}':'9 4/13',
