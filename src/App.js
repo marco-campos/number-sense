@@ -1,11 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
-import {KeyPadComponent} from './buttons';
-import {ResultComponent} from './result';
-import { render } from '@testing-library/react';
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
+import { BlockMath } from 'react-katex';
 import {sac99, invA99, invB99,disA99,disB99,reg99} from './1999';
 import {sac00} from './2000';
 import {invA13, invB13,dis13, reg13, state13} from './2013';
