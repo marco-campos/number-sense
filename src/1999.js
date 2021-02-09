@@ -19,12 +19,11 @@ export const sac99 = {
   '4 \\frac{2}{5} \\% = \\textrm{(fraction)}':'11/250',
   '\\textrm{Find the cost of driving 127 miles at 25 cents per mile. \\$}':'31.75',
   '41259 \\div 39 =': 1058.0
-
 }
 
 export const invA99 = {
   '1999 \\times 200=': '399800',
-  '514 \\div 5 = ': '102.8',
+  '514 \\div 5 = \\textrm{(decimal)}': '102.8',
   '25 \\times 143 = ': '3575',
   '562 - 265 =': '297',
   '\\textrm{Which is smaller, } \\frac{5}{7} \\textrm{ or } \\frac{7}{9}': '5/7',
