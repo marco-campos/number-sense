@@ -60,7 +60,7 @@ export const invB99 = {
   '11 \\times 187 = ': '2057',
   '14.5 \\textrm{ is what percent of 58?} = \\%': '25',
   '0.025 = \\textrm{(fraction)}': '1/40',
-  '12in \\times 18in \\times .5 in = \\textrm{cubic yards}':'4',
+  '12ft \\times 18ft \\times .5 ft = \\textrm{cubic yards}':'4',
   '7(6)+57(7)+8(11) = ':'529',
   '\\textrm{The number 210 has \\_\\_\\_\\_ distinct positive prime factors}': '4',
   '26-8 \\times 2 +4 \\div 2 = ': '12',
